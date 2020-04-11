@@ -1,6 +1,9 @@
 
 from tkinter import *
+import tkinter
 import random
+import cv2
+import PIL.Image, PIL.ImageTk
 y=[]
 kcount=0
 count=0
@@ -8,6 +11,13 @@ while(kcount!=4):
 
     root=Tk()
     root.title("KBC")
+    cv_img = cv2.cvtColor(cv2.imread("xoxo.jpg"), cv2.COLOR_BGR2RGB)
+    height, width, no_channels = cv_img.shape
+    canvas = Canvas(root, width = width, height = height)
+    canvas.pack()
+    photo = PIL.ImageTk.PhotoImage(image = PIL.Image.fromarray(cv_img))
+    canvas.create_image(0, 0, image=photo, anchor=tkinter.NW)
+    top=Toplevel()
     
     Q1=["Which Fermion has no anti particle", "Which party did Hitler belong to"," What title was given to Aurangazeb","When was the battle of Plassey fought"]
     op11=["electron","proton","neutrino","pi meson"]
@@ -16,6 +26,16 @@ while(kcount!=4):
     op14=["1793","1765","1757","1803"]
 
     x=StringVar()
+
+    def wow():
+        top=Toplevel()
+        top.title("KBC")
+        t=Text(top,height=20,width=30,bg='midnight blue',fg='snow',font=('Airal',12))
+        t.pack()
+        t.insert(END,"LOCK KIYA JAE?")
+        tot=tkinter.Button(top,text="HAAN JI",width=27,command=result,activeforeground='black',bg='light cyan',font=('Airal',12))
+        tot.place(x=8,y=30)
+
 
    
     def verify(x,y):
@@ -28,10 +48,11 @@ while(kcount!=4):
 
             elif(x not in y):
                 
-                return 1
+                
                 break
                 
-    def check(x,Q1):
+    def check(x,Q1,top):
+     top.destroy()
      
      if(x==Q1[0]):
     
@@ -60,7 +81,8 @@ while(kcount!=4):
               bt4["text"]="wrong"
 
     def result():
-          check(x,Q1,)
+         
+          check(x,Q1,top)
 
 
         
@@ -91,18 +113,18 @@ while(kcount!=4):
                bt3["text"]=op14[2]
                bt4["text"]=op14[3]
 
-    bt1=Button(root,text=op11[0],command=result)
+    bt1=Button(root,text=op11[0],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt1.pack()
-    bt1.place(x=0,y=25)
-    bt2=Button(root,text=op11[1],command=result)
+    bt1.place(x=370,y=600)
+    bt2=Button(root,text=op11[1],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt2.pack()
-    bt2.place(x=0,y=50)
-    bt3=Button(root,text=op11[2],command=result)
+    bt2.place(x=760,y=600)
+    bt3=Button(root,text=op11[2],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt3.pack()
-    bt3.place(x=0,y=75)
-    bt4=Button(root,text=op11[3],command=result)
+    bt3.place(x=370,y=660)
+    bt4=Button(root,text=op11[3],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt4.pack()
-    bt4.place(x=0,y=100)
+    bt4.place(x=760,y=660)
 
 
 
@@ -113,10 +135,16 @@ while(kcount!=4):
             
         
         
-            if(verify(x,y)==1):
-                label=Label(root,text=x)
-                label.place(x=0,y=0)
-                y.append(x)
+            
+            #label=Label(root,text=x,bg='black',fg='white',font=('Airal',30),width=width)
+            #label.place(x=470,y=505)
+            verify(x,y)
+            messageVar=tkinter.Message(root,text= x)
+            messageVar.config(bg='black',fg='white',font=('Airal',30),width=width)
+            messageVar.place(x=400,y=505)
+            y.append(x)
+
+            
             
 
         
