@@ -210,6 +210,10 @@ while(kcount!=4):
             messageVar1=tkinter.Message(root,text= amount)
             messageVar1.config(bg='black',fg='white',font=('Airal',15),width=width)
             messageVar1.place(x=650,y=30)
+
+            messageVar1=tkinter.Message(root,text='₹')
+            messageVar1.config(bg='black',fg='white',font=('Airal',15),width=width)
+            messageVar1.place(x=630,y=30)
             
             
             
@@ -246,48 +250,3 @@ while(kcount!=4):
     root.mainloop()
     destroy(Q1,x)
     
-
-
-          
-
-
-
-              
-
-
-
-
-
-
-
-
-
-
-              
-
-   
-
-
-
-    
-
-
-
-
-                
-           
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-       
-
