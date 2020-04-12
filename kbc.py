@@ -1,12 +1,17 @@
-
+import matplotlib.pyplot as plt
 from tkinter import *
 import tkinter
 import random
 import cv2
 import PIL.Image, PIL.ImageTk
-y=[]
 kcount=0
 count=0
+amount=5000
+Q1=["Which Fermion has no anti particle", "Which party did Hitler belong to"," What title was given to Aurangazeb","When was the battle of Plassey fought"]
+op11=["electron","proton","neutrino","pi meson"]
+op12=["Congress","BJP","Shiv sena","Nazi Germany"]
+op13=["alamgir","akbar","alampanah","shehensha"]
+op14=["1793","1765","1757","1803"]
 while(kcount!=4):
 
     root=Tk()
@@ -19,13 +24,15 @@ while(kcount!=4):
     canvas.create_image(0, 0, image=photo, anchor=tkinter.NW)
     top=Toplevel()
     
-    Q1=["Which Fermion has no anti particle", "Which party did Hitler belong to"," What title was given to Aurangazeb","When was the battle of Plassey fought"]
-    op11=["electron","proton","neutrino","pi meson"]
-    op12=["Congress","BJP","Shiv sena","Nazi Germany"]
-    op13=["alamgir","akbar","alampanah","shehensha"]
-    op14=["1793","1765","1757","1803"]
+    
 
     x=StringVar()
+
+    def destroy(Q1,x):
+        w=Q1.index(x)
+        Q1[w]=0
+        
+        
 
     def wow():
         top=Toplevel()
@@ -35,54 +42,94 @@ while(kcount!=4):
         t.insert(END,"LOCK KIYA JAE?")
         tot=tkinter.Button(top,text="HAAN JI",width=27,command=result,activeforeground='black',bg='light cyan',font=('Airal',12))
         tot.place(x=8,y=30)
+        
+    def audiencepollsneak(x,Q1,plt):
+        perc=[]
+        if(x==Q1[0]):
+            perc=[25,15,35,25]
+
+        elif(x==Q1[1]):
+            perc=[15,25,25,35]
+
+        elif(x==Q1[2]):
+            perc=[35,25,15,25]
+
+        elif(x==Q1[3]):
+            perc=[25,25,35,15]
+
+        ops=['A','B','C','D']
+        plt.bar(ops,perc,color='g')
+        plt.legend()
+        plt.xlabel("Options")
+        plt.ylabel("Percentage")
+        plt.title("Audience Poll")
+        plt.show()
+
+            
+
+    def audiencepoll():
+        audiencepollsneak(x,Q1,plt)
+
+    def fiftysneak(x,Q1):
+        if(x==Q1[0]):
+            bt1.destroy()
+            bt4.destroy()
+
+        elif(x==Q1[1]):
+            bt2.destroy()
+            bt3.destroy()
+
+        elif(x==Q1[2]):
+            bt3.destroy()
+            bt4.destroy()
+
+        elif(x==Q1[3]):
+            bt1.destroy()
+            bt2.destroy()
+
+        
+
+    def fifty():
+         fiftysneak(x,Q1)
+    
+    
 
 
    
-    def verify(x,y):
-        
-        while(True):
-            if(x in y):
-                x=Q1[random.randrange(4)]
+    
                 
-                
-
-            elif(x not in y):
-                
-                
-                break
-                
-    def check(x,Q1,top):
+    def check(x,Q1):
      top.destroy()
+
+     
      
      if(x==Q1[0]):
     
     
-         bt1["text"]="wrong"
-         bt2["text"]="wrong"
-         bt3["text"]="correct"
-         bt4["text"]="wrong"
+         
+         bt3["bg"]="green"
+         
 
      elif(x==Q1[1]):
-        bt1["text"]="wrong"
-        bt2["text"]="wrong"
-        bt3["text"]="wrong"
-        bt4["text"]="correct"
-
+        
+        bt4["bg"]="green"
+        
      elif(x==Q1[2]):
-         bt1["text"]="correct"
-         bt2["text"]="wrong"
-         bt3["text"]="wrong"
-         bt4["text"]="wrong"
+         
+         bt1["bg"]="green"
+
+     
 
      elif(x==Q1[3]):
-              bt1["text"]="wrong"
-              bt2["text"]="wrong"
-              bt3["text"]="correct"
-              bt4["text"]="wrong"
+              
+              bt3["bg"]="green"
+
+    
 
     def result():
+          
          
-          check(x,Q1,top)
+          check(x,Q1)
 
 
         
@@ -125,6 +172,14 @@ while(kcount!=4):
     bt4=Button(root,text=op11[3],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt4.pack()
     bt4.place(x=760,y=660)
+    ap=Button(root,text="Audience poll",command=audiencepoll,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
+    ap.pack()
+    ap.place(x=1100,y=40)
+
+    ff=Button(root,text="50 50",command=fifty,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
+    ff.pack()
+    ff.place(x=1000,y=40)
+
 
 
 
@@ -132,18 +187,30 @@ while(kcount!=4):
     
 
             x=Q1[random.randrange(4)]
+
+            
+            while(True):
+                if(x==0):
+                    x=Q1[random.randrange(4)]
+
+                else:
+                    break
+
             
         
         
             
             #label=Label(root,text=x,bg='black',fg='white',font=('Airal',30),width=width)
             #label.place(x=470,y=505)
-            verify(x,y)
+            #verify(x,y)
             messageVar=tkinter.Message(root,text= x)
             messageVar.config(bg='black',fg='white',font=('Airal',30),width=width)
             messageVar.place(x=400,y=505)
-            y.append(x)
 
+            messageVar1=tkinter.Message(root,text= amount)
+            messageVar1.config(bg='black',fg='white',font=('Airal',15),width=width)
+            messageVar1.place(x=650,y=30)
+            
             
             
 
@@ -172,10 +239,13 @@ while(kcount!=4):
 
 
 
-
+    
     kcount=kcount+1
+    amount=2*amount
+    
     root.mainloop()
-
+    destroy(Q1,x)
+    
 
 
           
