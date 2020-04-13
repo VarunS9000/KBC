@@ -12,8 +12,8 @@ op11=["electron","proton","neutrino","pi meson"]
 op12=["Congress","BJP","Shiv sena","Nazi Germany"]
 op13=["alamgir","akbar","alampanah","shehensha"]
 op14=["1793","1765","1757","1803"]
-while(kcount!=4):
 
+while(kcount<4):
     root=Tk()
     root.title("KBC")
     cv_img = cv2.cvtColor(cv2.imread("xoxo.jpg"), cv2.COLOR_BGR2RGB)
@@ -23,6 +23,8 @@ while(kcount!=4):
     photo = PIL.ImageTk.PhotoImage(image = PIL.Image.fromarray(cv_img))
     canvas.create_image(0, 0, image=photo, anchor=tkinter.NW)
     top=Toplevel()
+
+    
     
     
 
@@ -31,17 +33,50 @@ while(kcount!=4):
     def destroy(Q1,x):
         w=Q1.index(x)
         Q1[w]=0
-        
-        
 
-    def wow():
+
+    
+
+    def wow1():
         top=Toplevel()
         top.title("KBC")
         t=Text(top,height=20,width=30,bg='midnight blue',fg='snow',font=('Airal',12))
         t.pack()
         t.insert(END,"LOCK KIYA JAE?")
-        tot=tkinter.Button(top,text="HAAN JI",width=27,command=result,activeforeground='black',bg='light cyan',font=('Airal',12))
+        tot=tkinter.Button(top,text="HAAN JI",width=27,command=result1,activeforeground='black',bg='light cyan',font=('Airal',12))
         tot.place(x=8,y=30)
+
+    def wow2():
+        top=Toplevel()
+        top.title("KBC")
+        t=Text(top,height=20,width=30,bg='midnight blue',fg='snow',font=('Airal',12))
+        t.pack()
+        t.insert(END,"LOCK KIYA JAE?")
+        tot=tkinter.Button(top,text="HAAN JI",width=27,command=result2,activeforeground='black',bg='light cyan',font=('Airal',12))
+        tot.place(x=8,y=30)
+
+    def wow3():
+        top=Toplevel()
+        top.title("KBC")
+        t=Text(top,height=20,width=30,bg='midnight blue',fg='snow',font=('Airal',12))
+        t.pack()
+        t.insert(END,"LOCK KIYA JAE?")
+        tot=tkinter.Button(top,text="HAAN JI",width=27,command=result3,activeforeground='black',bg='light cyan',font=('Airal',12))
+        tot.place(x=8,y=30)
+
+    def wow4():
+        top=Toplevel()
+        top.title("KBC")
+        t=Text(top,height=20,width=30,bg='midnight blue',fg='snow',font=('Airal',12))
+        t.pack()
+        t.insert(END,"LOCK KIYA JAE?")
+        tot=tkinter.Button(top,text="HAAN JI",width=27,command=result4,activeforeground='black',bg='light cyan',font=('Airal',12))
+        tot.place(x=8,y=30)
+
+
+
+
+    
         
     def audiencepollsneak(x,Q1,plt):
         perc=[]
@@ -98,8 +133,9 @@ while(kcount!=4):
    
     
                 
-    def check(x,Q1):
+    def check(x,Q1,b,messageVar,kcount):
      top.destroy()
+     print(b)
 
      
      
@@ -108,28 +144,98 @@ while(kcount!=4):
     
          
          bt3["bg"]="green"
+         if(b!=3):
+             messageVar.destroy()
+             messageVar2=tkinter.Message(root,text= "You Lose")
+             messageVar2.config(bg='black',fg='white',font=('Airal',30),width=width)
+             messageVar2.place(x=550,y=505)
+             kcount=5
+             
+
+         elif(b==3 and kcount==4):
+             messageVar.destroy()
+             messageVar2=tkinter.Message(root,text= "You Win")
+             messageVar2.config(bg='black',fg='white',font=('Airal',30),width=width)
+             messageVar2.place(x=550,y=505)
+
+            
+             
          
 
      elif(x==Q1[1]):
         
         bt4["bg"]="green"
+        if(b!=4):
+             messageVar.destroy()
+             messageVar2=tkinter.Message(root,text= "You Lose")
+             messageVar2.config(bg='black',fg='white',font=('Airal',30),width=width)
+             messageVar2.place(x=550,y=505)
+             kcount=5
+
+        elif(b==4 and kcount==4):
+             messageVar.destroy()
+             messageVar2=tkinter.Message(root,text= "You Win")
+             messageVar2.config(bg='black',fg='white',font=('Airal',30),width=width)
+             messageVar2.place(x=550,y=505)
+
+            
+            
         
      elif(x==Q1[2]):
          
          bt1["bg"]="green"
+         if(b!=1):
+             messageVar.destroy()
+             messageVar2=tkinter.Message(root,text= "You Lose")
+             messageVar2.config(bg='black',fg='white',font=('Airal',30),width=width)
+             messageVar2.place(x=550,y=505)
+             kcount=5
+
+         elif(b==1 and kcount==4):
+             messageVar.destroy()
+             messageVar2=tkinter.Message(root,text= "You Win")
+             messageVar2.config(bg='black',fg='white',font=('Airal',30),width=width)
+             messageVar2.place(x=550,y=505)
+
+            
 
      
 
      elif(x==Q1[3]):
               
               bt3["bg"]="green"
+              if(b!=3):
+                  messageVar.destroy()
+                  messageVar2=tkinter.Message(root,text= "You Lose")
+                  messageVar2.config(bg='black',fg='white',font=('Airal',30),width=width)
+                  messageVar2.place(x=550,y=505)
+                  kcount=5
+
+              elif(b==3 and kcount==4):
+                 messageVar.destroy()
+                 messageVar2=tkinter.Message(root,text= "You Win")
+                 messageVar2.config(bg='black',fg='white',font=('Airal',30),width=width)
+                 messageVar2.place(x=550,y=505)
+
+            
 
     
 
-    def result():
-          
-         
-          check(x,Q1)
+    def result1():
+        b=1
+        check(x,Q1,b,messageVar,kcount)
+
+    def result2():
+        b=2
+        check(x,Q1,b,messageVar,kcount)
+
+    def result3():
+        b=3
+        check(x,Q1,b,messageVar,kcount)
+
+    def result4():
+        b=4
+        check(x,Q1,b,messageVar,kcount)
 
 
         
@@ -160,16 +266,16 @@ while(kcount!=4):
                bt3["text"]=op14[2]
                bt4["text"]=op14[3]
 
-    bt1=Button(root,text=op11[0],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
+    bt1=Button(root,text=op11[0],command=wow1,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt1.pack()
     bt1.place(x=370,y=600)
-    bt2=Button(root,text=op11[1],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
+    bt2=Button(root,text=op11[1],command=wow2,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt2.pack()
     bt2.place(x=760,y=600)
-    bt3=Button(root,text=op11[2],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
+    bt3=Button(root,text=op11[2],command=wow3,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt3.pack()
     bt3.place(x=370,y=660)
-    bt4=Button(root,text=op11[3],command=wow,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
+    bt4=Button(root,text=op11[3],command=wow4,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
     bt4.pack()
     bt4.place(x=760,y=660)
     ap=Button(root,text="Audience poll",command=audiencepoll,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
@@ -242,11 +348,26 @@ while(kcount!=4):
 
 
 
-
+    
+        
     
     kcount=kcount+1
     amount=2*amount
+
     
+
+    
+
+    
+
+    
+
+        
     root.mainloop()
-    destroy(Q1,x)
     
+    
+    
+    
+    destroy(Q1,x)
+
+
