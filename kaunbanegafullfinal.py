@@ -160,7 +160,7 @@ Questions = {1:{"What is the indian currency?":[3,["DOLLAR","YEN","EURO","RUPEE"
                 "The smallest planet is?":[2,["JUPITER","SATURN","PLUTO","VENUS"]]},
              2:{"How many players make a football team?":[1,["10","11","6","9"]],
                 "Who is sherlock holmes?":[0,["DETECTIVE","CLOWN","SPY","CONVICT"]],
-                "How many players make a cricket team" : [2,["11","13","12","14"]]},
+                "How many players make a cricket team" : [0,["11","13","12","14"]]},
              3:{"Which is the fastest creature on earth?":[0,["CHEETAH","PANTHER","LION","KANGAROO"]],
                 "England's national game is?" : [0,["CRICKET","HOCKEY","VOLLEYBALL","KABADDI"]],
                 "India's national game is?" : [1,["CRICKET","HOCKEY","VOLLEYBALL","KABADDI"]]},
