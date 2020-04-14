@@ -4,8 +4,10 @@ from tkinter import *
 import tkinter
 import cv2
 import PIL.Image, PIL.ImageTk
+import playsound
+from playsound import playsound
+playsound("finalKBC.mp3")
 amount=5000
-
 def wow():
     print("in option")
     top=Toplevel()
